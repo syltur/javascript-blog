@@ -1,3 +1,17 @@
+/* Error: expected "{".
+ *    ,
+ * 46 | ​
+ *    |  ^
+ *    '
+ *   sass\style.scss 46:2  root stylesheet */
 
-
-/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzdHlsZS5jc3MifQ== */
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: 'Error: expected "{".\a    \2577 \a 46 \2502  \200b \a    \2502   ^\a    \2575 \a   sass\\style.scss 46:2  root stylesheet';
+}
