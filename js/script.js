@@ -40,19 +40,19 @@ clickedElement.classList.add('active');
 
 
 function generateTitleLinks(){
-  const ArticleSelector = document.querySelector('.post');
-  const TitleSelector = document.querySelector('.post-title');
-  const TitleListSelector = document.querySelector('.titles');
+  const ArticleSelector = ('.post');
+  const TitleSelector = ('.post-title');
+  const TitleListSelector =('.titles');
 
 /* remove contents of titleList */
 /*const titleList = document.querySelector(TitleListSelector);
 document.querySelector(titleList).innerHTML = '';*/
 /* for each article */
-const articles = ArticleSelector;
+const articles = document.querySelector(ArticleSelector);
 let html = '';
   for(let article of articles){
     /* get the article id */
-    const articleId = ArticleSelector.getAttribute('.Id');
+    const articleId = document.querySelectorAll('.Id');
     /* find the title element */
     /* get the title from the title element */
     const articleTitle = article.querySelector(TitleSelector).innerHTML;
