@@ -81,7 +81,7 @@
       /* START LOOP: for each tag */
       for(let tag of articleTagsArray){
         /* generate HTML of the link */
-        const linkHTML = '<li><a href="#' + tag + '">';
+        const linkHTML = '<li><a href="#' + tag + '"></a></li>';
         console.log(linkHTML);
         /* add generated code to html variable */
         tag.innerHTML += linkHTML;
