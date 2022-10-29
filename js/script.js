@@ -62,7 +62,7 @@
     link.addEventListener('click', titleClickHandler);
   }
   function generateTags(){
-    const ArticleTagsSelector = ('.post-tags .list');
+    const ArticleTagsSelector = ('.post-tags ul li');
     /* find all articles */
     const articles = document.querySelectorAll('.post');
     console.log(articles);
@@ -97,7 +97,7 @@
     }
   }
   generateTags();
-  function tagClickHandler(event){
+  const tagClickHandler = function(event){
     /* prevent default action for this event */
     event.preventDefault();
     /* make new constant named "clickedElement" and give it the value of "this" */
@@ -123,11 +123,11 @@
     /* END LOOP: for each found tag link */
     }
     /* execute function "generateTitleLinks" with article selector as argument */
-    
-    const ArticleSelector = ('.post');
-    generateTitleLinks(ArticleSelector);
-  }
-  tagClickHandler();
+  };
+  const ArticleSelector = ('.post-tags .list');
+  tagClickHandler(ArticleSelector);
+  
+
   
   function addClickListenersToTags(){
     /* find all links to tags */
