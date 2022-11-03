@@ -143,4 +143,41 @@
   }
   addClickListenersToTags();
   
+  function generateAuthors(){
+    const articles = document.querySelectorAll('.post');
+    for (let article of articles){
+      const author = article.getAttribute('data-author');
+      const authorWrapper = article.querySelector('.post-authors');
+      const linkHTML = '<a href="#tag' + author + '"><span>' + author + '</span></a>';
+      authorWrapper.innerHTML = linkHTML;
+    }
+  }
+  generateAuthors();
+  
+
+  const authorClickHandler = function(event){
+    event.preventDefault();
+    const clickedElement = this;
+    const href = clickedElement.getAttribute('href');
+    const author = href.replace('#author-', '');
+    const authorLinks = document.querySelector('a.active[href^="#author-"]');
+    for(let authorLink of authorLinks){
+      authorLink.classList.remove('active');
+    }
+    const allAuthorLinks = document.querySelectorAll('a.active[href^="#author-"]');
+    for(let oneAuthorLink of allAuthorLinks){
+      oneAuthorLink.classList.add('active');
+    }
+    generateTitleLinks('data-author~=#"'+ author + '"]');
+  };
+  const AuthorSelector = ('.sidebar .authors');
+  authorClickHandler(AuthorSelector);
+
+  function addClickListenersToAuthors (){
+    const links = document.querySelectorAll('a[href^="#author-"]');
+    for(let link of links){
+      link.addEventListener('click', authorClickHandler);
+    }
+  }
+  addClickListenersToAuthors(); 
 }
