@@ -6,7 +6,7 @@
     TitleListSelector = ('.titles'),
     TagsListSelector = ('.list-tags'),
     CloudClassCount = 5,
-    CloudClassPrefix = ('.tag-size-');
+    CloudClassPrefix = ('tag-size-');
   
 
   const titleClickHandler = function(event){
@@ -52,15 +52,13 @@
   }
   generateTitleLinks();
   
-  function calculateTagClass(count, params= {'max': 0, 'min': 999999}){
+  function calculateTagClass(count, params){
     const normalizedCount = count - params.min;
     const normalizedMax = params.max - params.min;
     const percentage = normalizedCount / normalizedMax;
     const classNumber = Math.floor( percentage * (CloudClassCount - 1) + 1 );
-    console.log('classnumber', classNumber);
-    return classNumber();
+    return classNumber;
   }
-  calculateTagClass(CloudClassPrefix);
 
   function generateTags(){
     let allTags = {};
@@ -99,7 +97,7 @@
       
       let allTagsHTML = '';
       for(let tag in allTags){
-        const tagLinkHTML = '<li><a class="'+ calculateTagClass(allTags[tag], tagsParams) +'" href="#tag-' + tag + '"> <span>' + tag + ' (' + allTags[tag] + ') ' + '</span></a></li>  ';
+        const tagLinkHTML = '<li><a class="tags-rigt-side ' + CloudClassPrefix + calculateTagClass(allTags[tag], tagsParams) +'" href="#tag-' + tag + '"> <span>' + tag + '</span></a></li>  ';
         console.log('tagLinkHTML:', tagLinkHTML);
         allTagsHTML += tagLinkHTML;
       } 
