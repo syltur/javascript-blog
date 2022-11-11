@@ -30,10 +30,12 @@ body {
 }
 
 .section-title {
+  clear: both;
   font-size: 22px;
   text-transform: uppercase;
   font-family: $font-header;
   font-weight: 600;
+  margin: 5px;
   span {
     text-transform: none;
     font-weight: 400;
